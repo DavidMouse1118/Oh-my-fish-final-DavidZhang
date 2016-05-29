@@ -1,0 +1,76 @@
+<ion-view view-title=''>
+    <ion-nav-buttons side="left" >
+      <div style="width: 100%;"><img src="img/login-icon.png" style="max-width:100%;
+        max-height:100%;
+        margin:auto;
+        display:block;"></div>
+    </ion-nav-buttons>
+    <ion-header-bar class="bar bar-subheader item-input-inset" style="min-height: 20px; padding-top: 60px; padding-bottom: 30px">
+    <div class="col" style="height:4em;width:100%;">
+         <i class="icon ion-funnel" style="float:left; width:5%; height:4em;color: #444;font-size: 21px;padding-top: 5%;" ng-click="modal.show();"></i>
+     </div>
+    </ion-header-bar>
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+      <div class="content has-header" id="map" data-tap-disabled="true" style="top: 8%;height: 83%;"></div>
+    </ion-content>
+    <marker position="{{latitude}},{{longitude}}" draggable="true" on-mouseup="markerMove()" visible="true"></marker>
+    <script id="templates/modal.html" type="text/ng-template">
+      <ion-modal-view style="width: 90%;
+      min-height: 0 !important;
+      height: 408px !important;
+      top: 16%;
+      left: 5%;
+      right: 5%;
+      bottom: 5%;
+      background-color: transparent;">
+      <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title title-left" style="right:200px !important;">Fliter By</h1>
+        <h1 class="title title-right" ng-click="modal.hide();">Cancel</h1>
+      </ion-header-bar>
+        <ion-content class="padding searcj" style="background-color:white;background-image:none;">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">Latitude</span>
+              <input ng-model="search.latitude" type="text">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Longitude</span>
+              <input ng-model="search.longitude" type="text">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Max Distance</span>
+              <input ng-model="search.distance" type="text">
+              <span class="input-label">miles</span>
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Fish Type</span>
+              <input ng-model="search.fishName" type="text">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Min total weight</span>
+              <input ng-model="search.fishTotalWeight" type="text">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Min amount</span>
+              <input ng-model="search.fishCount" type="text">
+            </label>
+            <button class="button button-full button-positive" ng-click="queryUsers()">Search</button>
+          </div>
+        </ion-content>
+      </ion-modal-view>
+    </script>
+    <div class="tabs tabs-icon-top" style="background-color: #387ef5;   height: 53px;">
+      <a href="#/app/new_log" class="tab-item" style="color: white; font-size: 13px; float: left; width:33%;">
+        <i class="icon ion-android-add-circle"></i>
+        New Log
+      </a>
+      <a href="#/app/favorites" class="tab-item" style="color: white;  font-size: 13px; float: left; width:33%;">
+        <i class="icon ion-android-map"></i>
+        Nearby Activities
+      </a>
+      <a href="#/app/enterprise/2000" class="tab-item" style="color: white;  font-size: 13px">
+        <i class="icon ion-android-person"></i>
+        My Operations
+      </a>
+    </div>
+  </ion-view>

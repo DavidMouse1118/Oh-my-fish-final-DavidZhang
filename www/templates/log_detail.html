@@ -1,0 +1,45 @@
+<ion-view view-title='Operations Details'>
+  <ion-nav-buttons side="left" >
+    <button class="button button-clear back-button header-item animate-fade-slide-in-right" style="border-color: #F8F8F" ng-click="goBack()">
+      <i class="icon ion-ios-arrow-back" style="color: #20AFDC; font-size: 25px;"> </i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content ng-class="{expanded:$scope.isExpanded}" id="Details">
+    <ul ng-repeat="node in nodes.data" class="list animate-fade-slide-in-right" style="margin-top: 35px">
+      <li class="item" style="background-color: white">
+        Vessel Name: <span class="pull-right">{{node.vesselName}}</span>
+      </li>
+      <li class="divider" style="height: 5px"></li>
+      <li class="item" style="background-color: white">
+        Location: <span class="pull-right">{{node.location[0].toFixed(3)}} N {{node.location[1].toFixed(3)}} E</span>
+      </li>
+      <li class="divider" style="height: 5px"></li>
+      <li class="item" style="background-color: white">
+        Main type of catch: <span class="pull-right">{{node.fishName}}</span>
+      </li>
+      <li class="divider" style="height: 5px"></li>
+      <li class="item" style="background-color: white">
+        Total catch: <span class="pull-right">{{node.fishCount}}</span>
+      </li>
+      <li class="divider" style="height: 5px"></li>
+      <li class="item" style="background-color: white">
+        License: <span class="pull-right">-magnet:sdfsdfsjdsihf293889sdf</span>
+      </li>
+      <li class="divider" style="height: 5px"></li>
+    </ul>
+  </ion-content>
+  <div class="tabs tabs-icon-top" style="background-color: #387ef5;   height: 53px;">
+    <a href="#/app/new_log" class="tab-item" style="color: white; font-size: 13px; float: left; width:33%;">
+      <i class="icon ion-android-add-circle"></i>
+      New Log
+    </a>
+    <a href="#/app/favorites" class="tab-item" style="color: white;  font-size: 13px; float: left; width:33%;">
+      <i class="icon ion-android-map"></i>
+      Nearby Activities
+    </a>
+    <a href="#/app/enterprise/2000" class="tab-item" style="color: white;  font-size: 13px">
+      <i class="icon ion-android-person"></i>
+      My Operations
+    </a>
+  </div>
+</ion-view>

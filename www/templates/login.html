@@ -1,0 +1,67 @@
+<ion-view view-title="" align-title="left">
+    <ion-content class="cs-wrap" style="background-size: cover;">
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="">
+                  <img src = "img/landinglogo.png" class="ot-logo">
+                </div>
+            </div>
+        </div>
+        <div class="csui list">
+          <div class="login-error">
+          </div>
+          <form name="loginAuthForm">
+            <div class="item item-input item-floating-label">
+              <input ng-model="username" type="text" name="Username" placeholder="User name" ng-focus="errorgone()" autocomplete="off">
+              <span ng-show="username != ''" id="otds_username_clearer" class="clear-icon" ng-click="username = ''"></span>
+            </div>
+            <div class="item item-input item-floating-label">
+              <input ng-model="password" type="password" name="Password" placeholder="Password" ng-focus="errorgone()" autocomplete="off">
+              <span ng-show="password != ''" id="otds_password_clearer" class="clear-icon" ng-click="password = ''"></span>
+            </div>
+            <div class="csui padding">
+              <button ng-click="authenticate(username, password);" class="csui button button-full button-assertive ink" ng-disabled="username == ''|| password == ''"><h4>Sign in</h4></button>
+            </div>
+          </form>
+        </div>
+        <div class="footer">
+          <span class="login-copyright">
+            <br>
+            <span style="color: #b2b2b2">Don't have an account?</span> &nbsp;<span ng-click="modal.show();">Sign up</span>
+          </span>
+        </div>
+    </ion-content>
+    <script id="templates/signupmodal.html" type="text/ng-template">
+      <ion-modal-view style="width: 90%;
+      min-height: 0 !important;
+      height: 280px !important;
+      top: 27%;
+      left: 5%;
+      right: 5%;
+      bottom: 5%;
+      background-color: transparent;">
+      <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title title-left">Sign Up</h1>
+        <h1 class="title title-right" ng-click="modal.hide();">Cancel</h1>
+      </ion-header-bar>
+        <ion-content class="padding searcj" style="background-color:white;background-image:none;">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">Username</span>
+              <input ng-model="Username" type="text" >
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Passward</span>
+              <input ng-model="Passward1" type="password" >
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Confirm Password</span>
+              <input ng-model="Passward2" type="password" required>
+            </label>
+            <span ng-show="Passward1 != Passward2" style="color:red; padding-left: 6%;">Must match the previous entry</span>
+          </div>
+          <button class="button button-full button-positive" ng-click="signup(Username,Passward1);">Sign Up</button>
+        </ion-content>
+      </ion-modal-view>
+    </script>
+</ion-view>

@@ -1,0 +1,85 @@
+<ion-view view-title='Start a new operation'>
+  </ion-nav-buttons>
+  <ion-content style = "top: 72px;bottom: 53px;">
+    <div class="upload list" style="padding-top:19px;font-color:white;padding-right:10px">
+      <label class="item item-input item-stacked-label" style="font-color:white">
+        <span class="input-label">User Name</span>
+        <input  ng-model = "formData.username" type="text" placeholder="Titel.Name" >
+      </label>
+      <label class="item item-input item-stacked-label" style="font-color:white">
+        <span class="input-label">Your Operartion Latitude</span>
+        <input type="number" placeholder="39.5" ng-model="formData.latitude" >
+      </label>
+      <label class="item item-input item-stacked-label" style="font-color:white">
+        <span class="input-label">Your Operartion Longitude</span>
+        <input type="number" placeholder="-98.35" ng-model="formData.longitude" >
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Phone</span>
+        <input  ng-model = "formData.phone" type="Tel" >
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Start Date</span>
+        <input  ng-model = "formData.startdate" type="date" placeholder="0000/00/00 00:00(24hr)">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">End Date</span>
+        <input  ng-model = "formData.enddate" type="date" placeholder="0000/00/00 00:00(24hr)">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Name of vessel</span>
+        <input  ng-model = "formData.vessel" type="text" placeholder="">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Details of vessel</span>
+        <input  ng-model = "formData.deVessel" type="text" placeholder="Gear Type, Vessel characteristics, etc">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Dealer Information</span>
+        <input  ng-model = "formData.Dealer" type="text" placeholder="Dealer #, Name, Address, etc. if fish is sold to market">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Vessel operator</span>
+        <input  ng-model = "formData.vesseloperator" type="text" placeholder="">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Fish Names</span>
+        <input  ng-model = "formData.fishname" type="text" placeholder="Name,Name,Name">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Fish Total Weight</span>
+        <input  ng-model = "formData.fishWeight" type="text" placeholder="Weight" style="float:left;width:87%">
+        <span class="input-label" style="float:left;width:30px;">&nbsp;&nbsp;tons</span>
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Fish Count</span>
+        <input  ng-model = "formData.fishCount" type="number" placeholder="Number">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Fish appx Length</span>
+        <input  ng-model = "formData.fishLength" type="text" placeholder="meter">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Fish group appx weight (single)</span>
+        <input  ng-model = "formData.fishsingleweight" type="text" placeholder="kg,kg,kg">
+      </label>
+        <div class="csui padding">
+          <button ng-click = "createOperationLog();" class="csui button button-full button-assertive ink"><h4>Submit</h4></button>
+        </div>
+    </div>
+  </ion-content>
+  <div class="tabs tabs-icon-top" style="background-color: #387ef5;   height: 53px;">
+    <a href="#/app/new_log" class="tab-item" style="color: white; font-size: 13px; float: left; width:33%;">
+      <i class="icon ion-android-add-circle"></i>
+      New Log
+    </a>
+    <a href="#/app/favorites" class="tab-item" style="color: white;  font-size: 13px; float: left; width:33%;">
+      <i class="icon ion-android-map"></i>
+      Nearby Activities
+    </a>
+    <a href="#/app/enterprise/2000" class="tab-item" style="color: white;  font-size: 13px">
+      <i class="icon ion-android-person"></i>
+      My Operations
+    </a>
+  </div>
+</ion-view>

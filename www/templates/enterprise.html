@@ -1,0 +1,42 @@
+<ion-view view-title='My OperationLog' style="font-size: 20px">
+  <ion-nav-buttons side="left" >
+    <div style="width: 100%;"><img src="img/login-icon.png" style="max-width:100%;
+  max-height:100%;
+  margin:auto;
+  display:block;"></div>
+  </ion-nav-buttons>
+  <ion-header-bar class="bar bar-subheader item-input-inset" style="min-height: 20px; padding-top: 60px; padding-bottom: 30px">
+    <label class="item-input-wrapper search">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input placeholder="Search for an operation..." ng-model="input" ng-keydown="$event.which === 13 && searchList(input)"  type="text">
+    </label>
+  </ion-header-bar>
+
+  <ion-content id="setScroll" ng-class="{expanded:isExpanded}" style="bottom: 54px;">
+    <div class="content has-header">
+      <div class="animate-fade-slide-in-right" style="padding-top:20px">
+        <a ng-repeat="node in nodes.data" ng-click="show();" class="item item-avatar item-icon-right" style="min-height: 75px;">
+          <img src="img/log_icon.png">
+          <h2>Location: {{node.location[0].toFixed(3)}} N {{node.location[1].toFixed(3)}} E</h2>
+          <p>Time ：{{node.finished_at.substring(12,16) + "  ||  "
+                        + node.finished_at.substring(0,10)}}</p>
+          <i class="icon ion-chevron-right muted"><img src="img/icons/circle_arrow_right.svg" style="position: absolute; left:-2px; top: 20px"></i>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+  <div class="tabs tabs-icon-top" style="background-color: #387ef5;   height: 53px;">
+    <a href="#/app/new_log" class="tab-item" style="color: white; font-size: 13px; float: left; width:33%;">
+      <i class="icon ion-android-add-circle"></i>
+      New Log
+    </a>
+    <a href="#/app/favorites" class="tab-item" style="color: white;  font-size: 13px; float: left; width:33%;">
+      <i class="icon ion-android-map"></i>
+      Nearby Activities
+    </a>
+    <a href="#/app/enterprise/2000" class="tab-item" style="color: white;  font-size: 13px">
+      <i class="icon ion-android-person"></i>
+      My Operations
+    </a>
+  </div>
+</ion-view>
