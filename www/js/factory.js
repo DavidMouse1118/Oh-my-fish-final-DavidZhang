@@ -138,7 +138,7 @@ angular.module('starter')
           console.log(msg);
         });
     },
-    getSubNodesById: function(id, nodes,callback){
+    getSubNodesById: function(id, nodes){
       $http({
         method: 'GET',
         url: AuthenticationService.getURL() + '/operationlog/' + id,
@@ -154,7 +154,7 @@ angular.module('starter')
     getOperationDetails: function(id,node){
       $http({
         method: 'GET',
-        url: AuthenticationService.getURL() + '/operationlog/logDetail/' + id,
+        url: AuthenticationService.getURL() + '/operationlog/user/' + id,
         headers: {'ohmyfish-ticket': window.localStorage.getItem('ohmyfish-ticket')},
       }).then(function successCallback(msg) {
         console.log(msg);
@@ -165,6 +165,16 @@ angular.module('starter')
       });
     },
     deleteNode: function(id){
+      //AuthenticationService.getTicket();
+      $http({
+        method: 'DELETE',
+        url: AuthenticationService.getURL() + '/operationlog/user/' + id,
+        headers: {'ohmyfish-ticket': window.localStorage.getItem('ohmyfish-ticket')},
+      }).then(function successCallback(msg) {
+        console.log(msg);
+      }, function failCallback(msg, username) {
+        console.log(msg);
+      });
     }
   };
 });

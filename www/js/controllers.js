@@ -339,6 +339,8 @@ angular.module('starter.controllers', [])
   $scope.$parent.setExpanded(true);
   $scope.$parent.setHeaderFab(false);
 
+  $scope.search = {};
+
 
   $ionicModal.fromTemplateUrl('templates/modal.html', {
     scope: $scope
@@ -369,6 +371,45 @@ angular.module('starter.controllers', [])
         // Handling Clicks and location selection
         googleMapService.clickLat  = 0;
         googleMapService.clickLong = 0;
+
+        // Take query parameters and incorporate into a JSON queryBody
+    $scope.queryLogs = function(){
+
+        // Assemble Query Body
+        queryBody = {
+            longitude: parseFloat($scope.search.longitude),
+            latitude: parseFloat($scope.search.latitude),
+            distance: parseFloat($scope.search.distance),
+            fishName: $scope.search.fishName,
+            fishTotalWeight: $scope.search.fishTotalWeight,
+            fishCount: $scope.search.fishCount,
+            userId: "123"
+        };
+
+        $http({
+          method: 'POST',
+          url: "http://localhost:3000/query/",
+          data: queryBody,
+          headers: {'ohmyfish-ticket': window.localStorage.getItem('ohmyfish-ticket'),'Content-Type': 'application/json'}
+        })
+            // Store the filtered results in queryResults
+            .then(function(queryResults){
+
+                // Query Body and Result Logging
+                console.log("QueryBody:");
+                console.log(queryBody);
+                console.log("QueryResults:");
+                console.log(queryResults);
+                $scope.modal.hide();
+                // Pass the filtered results to the Google Map Service and refresh the map
+                googleMapService.refresh(queryBody.latitude, queryBody.longitude, queryResults);
+                // Count the number of records retrieved for the panel-footer
+                $scope.queryCount = queryResults.length;
+            },
+            function(queryResults){
+                console.log('Error ' + queryResults);
+            })
+    };
 
         // Functions
         // --------------------------------------------------------------
